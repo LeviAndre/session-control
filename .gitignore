@@ -1,0 +1,12 @@
+# Ignorar arquivos de compilação
+*.log
+*.tmp
+*.exe
+
+# Ignorar diretório de dependências
+node_modules/
+.angular/
+
+# Ignorar arquivos de configuração sensíveis
+.env
+config.js
