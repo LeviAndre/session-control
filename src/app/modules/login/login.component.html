@@ -1,0 +1,17 @@
+<p>login works!</p>
+
+<div class="row justify-content-center vh-100">
+  <div class="col-8 bg-success h-100">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div>
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" formControlName="username" />
+      </div>
+      <div>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" formControlName="password" />
+      </div>
+      <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    </form>
+  </div>
+</div>
