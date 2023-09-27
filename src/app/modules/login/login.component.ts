@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     const username = this.loginForm.get('username')?.value;
     const password = this.loginForm.get('password')?.value;
 
-      return this.http.post('http://localhost:3000/posts', { username, password }).subscribe(data => {
+      return this.http.post('http://localhost:3000/users', { username, password }).subscribe(data => {
         console.log(data + "boa");
     });
   }
