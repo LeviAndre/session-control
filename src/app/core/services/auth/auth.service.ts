@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
 import { LoginDTO } from 'src/app/shared/dto/login.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000'
+  private baseUrl = 'http://localhost:3000';
 
   constructor(private _http: HttpClient) { }
 
-  authenticate(userInfo: LoginDTO): Observable<any> {
+  authenticate(userInfo: any): Observable<any> {
     return this._http.get<any[]>(`${this.baseUrl}/users`, { params: userInfo }).pipe(
       map(users => {
         if (users.length === 1) {
@@ -26,12 +27,18 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('session');
+    localStorage.clear;
+  }
+
+  getUsername(): Observable<string> {
+    return this._http.get<string>(`${this.baseUrl}/username`).pipe(
+      map(output => output)
+    );
   }
 
   isAuthenticated(): boolean {
     const logged = !!localStorage.getItem('isAuth');
-    console.log(logged);
+    console.log("Login: " + logged);
     return logged;
   }
 }

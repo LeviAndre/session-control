@@ -2,33 +2,55 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginDTO } from 'src/app/shared/dto/login.dto';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm: FormGroup
+  username: any = "";
 
   auth: LoginDTO = new LoginDTO();
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.loginForm = this.fb.group({
+  constructor(private _fb: FormBuilder, private _router: Router, private _authService: AuthService) {
+    this.loginForm = this._fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
+
+    this.updateLoginStatus();
   }
 
-  ngOnInit(): void {
+  private updateLoginStatus(): void {
+    var isOnline = this._authService.isAuthenticated();
+
+    if (isOnline) {
+      this.username = this._authService.getUsername();
+      console.log('Usuário: ' + this.username);
+    }
   }
 
   login() {
-    const username = this.loginForm.get('username')?.value;
-    const password = this.loginForm.get('password')?.value;
+    this.auth = {
+      username: this.loginForm.get('username')?.value,
+      password: this.loginForm.get('password')?.value,
+    }
 
-      return this.http.post('http://localhost:3000/users', { username, password }).subscribe(data => {
-        console.log(data + "boa");
-    });
+    this._authService.authenticate(this.auth).subscribe(
+      output => {
+        if(output.success) {
+          this._router.navigate(['/home']);
+        } else {
+          console.log('Autenticação falhou, exception: ' + output.message)
+        }
+      },
+      error => {
+        console.log('Autenticação falhou, exception: ' + error)
+      }
+    )
   }
 }

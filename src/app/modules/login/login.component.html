@@ -12,6 +12,7 @@
         <input type="password" id="password" formControlName="password" />
       </div>
       <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      <button [routerLink]="'/register'">Não tenho uma conta</button>
     </form>
   </div>
 </div>

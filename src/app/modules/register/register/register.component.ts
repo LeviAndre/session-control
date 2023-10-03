@@ -2,33 +2,48 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginDTO } from 'src/app/shared/dto/login.dto';
 import { HttpClient } from '@angular/common/http';
+import { RegisterService } from 'src/app/core/services/register/register.service';
+import { RegisterDTO } from 'src/app/shared/dto/register.dto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
-  loginForm: FormGroup
+export class RegisterComponent {
+  formGroup: FormGroup;
+  registerInfo: RegisterDTO | undefined;
+  defaultToken: string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10";
 
   auth: LoginDTO = new LoginDTO();
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.loginForm = this.fb.group({
+  constructor(private _fb: FormBuilder, private _router: Router, private _registerService: RegisterService ) {
+    this.formGroup = this._fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void {
-  }
+  register() {
 
-  login() {
-    const username = this.loginForm.get('username')?.value;
-    const password = this.loginForm.get('password')?.value;
+    this.registerInfo = {
+      username: this.formGroup.get('username')?.value,
+      password: this.formGroup.get('password')?.value,
+      token: this.defaultToken,
+    }
 
-      return this.http.post('http://localhost:3000/users', { username, password }).subscribe(data => {
-        console.log(data + "boa");
-    });
+    this._registerService.register(this.registerInfo).subscribe(
+      output => {
+        if (output['token'] !== '') {
+          this._router.navigate(['/']);
+        } else {
+          console.error('Ocorreu um erro ao cadastrar o usuário:', output.message);
+        }
+      },
+      error => {
+        console.error('Ocorreu um erro ao cadastrar o usuário:', error);
+      }
+    )
   }
 }

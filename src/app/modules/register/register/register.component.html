@@ -1,6 +1,6 @@
 <div class="row justify-content-center vh-100">
-  <div class="col-8 bg-success h-100">
-    <form [formGroup]="loginForm" (ngSubmit)="login()" class="d-flex justify-content-center align-items-center">
+  <div class="col-8 bg-warning h-100">
+    <form [formGroup]="formGroup" (ngSubmit)="register()" class="d-flex justify-content-center align-items-center">
       <div>
         <label for="username">Usuário:</label>
         <input type="text" id="username" formControlName="username" />
@@ -9,7 +9,7 @@
         <label for="password">Senha:</label>
         <input type="password" id="password" formControlName="password" />
       </div>
-      <button type="submit" [disabled]="!loginForm.valid">Cadastrar</button>
+      <button type="submit" [disabled]="!formGroup.valid">Cadastrar</button>
     </form>
   </div>
 </div>

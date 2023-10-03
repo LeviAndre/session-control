@@ -1,44 +1,46 @@
 {
   "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "username": "andrelevi767@gmail.com",
-      "password": "wdwdw",
+      "username": "",
+      "password": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10",
       "id": 2
     },
     {
-      "username": "andrelevi767@gmail.com",
-      "password": "wdwdw",
+      "username": "",
+      "password": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10",
       "id": 3
     },
     {
-      "username": "andrelevi767@gmail.com",
-      "password": "wdwdw",
+      "username": "",
+      "password": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10",
       "id": 4
     },
     {
-      "username": "andrelevi767@gmail.com",
-      "password": "wdwdw",
+      "username": "wdwdwd",
+      "password": "wdwdwdwd",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10",
       "id": 5
     },
     {
-      "username": "andrelevi767@gmail.com",
-      "password": "wdwdwd",
+      "username": "aaaa",
+      "password": "aaaa",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10",
       "id": 6
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "username": "wdwd",
+      "password": "wdwd",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10",
+      "id": 7
+    },
+    {
+      "username": "wdwdwd",
+      "password": "wdwdwdwd",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5kcmVsZXZpIiwiYWRtaW4iOiJmYWxzZSIsImlhdCI6MTUxNjIzOTAyMn0.9OMS3AygUOoAPa0Ow9gHQwAu3C5w5uUEilI7cT9pG10",
+      "id": 8
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
