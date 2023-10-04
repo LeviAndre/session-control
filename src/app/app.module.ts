@@ -3,19 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/login/login.component';
-import { HomeComponent } from './modules/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './modules/register/register/register.component';
+import { ComponentsModule } from './shared/components/components/components.module';
+import { PagesModule } from './modules/pages.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent,
-    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +21,9 @@ import { RegisterComponent } from './modules/register/register/register.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ComponentsModule,
+    PagesModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
