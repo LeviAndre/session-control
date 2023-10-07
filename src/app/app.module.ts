@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentsModule } from './shared/components/components/components.module';
+import { ComponentsModule } from './shared/components/components.module';
 import { PagesModule } from './modules/pages.module';
 import { CoreModule } from './core/core.module';
 

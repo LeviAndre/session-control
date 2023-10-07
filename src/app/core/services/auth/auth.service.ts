@@ -17,6 +17,7 @@ export class AuthService {
         if (users.length === 1) {
           const user = users[0];
           localStorage.setItem('session', user.token.toString());
+          localStorage.setItem('userId', user.id.toString());
           localStorage.setItem('isAuth', 'true');
 
           return { success: true, message: 'User authenticated'}
@@ -30,10 +31,10 @@ export class AuthService {
     localStorage.clear;
   }
 
-  getUsername(): Observable<string> {
-    return this._http.get<string>(`${this.baseUrl}/username`).pipe(
-      map(output => output)
-    );
+  getUsername(): Observable<any> {
+    var userId: any = localStorage.getItem('userId');
+
+    return this._http.get<any>(`${this.baseUrl}/users?id=` + userId)
   }
 
   isAuthenticated(): boolean {

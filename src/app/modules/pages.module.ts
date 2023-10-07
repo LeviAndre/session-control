@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
+import { ComponentsModule } from '../shared/components/components.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppRoutingModule } from '../app-routing.module';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
+    ComponentsModule
   ],
   exports:[
     HomeComponent,

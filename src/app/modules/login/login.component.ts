@@ -41,11 +41,11 @@ export class LoginComponent {
     }
 
     this._authService.authenticate(this.auth).subscribe(
-      output => {
-        if(output.success) {
+      response => {
+        if(response.success) {
           this._router.navigate(['/home']);
         } else {
-          console.log('Autenticação falhou, exception: ' + output.message)
+          console.log('Autenticação falhou, exception: ' + response.message)
         }
       },
       error => {

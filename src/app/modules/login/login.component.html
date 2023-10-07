@@ -1,18 +1,22 @@
-<p>login works!</p>
+<div class="d-flex flex-wrap justify-content-center vh-100 bg-default">
+  <div class="col-4 transparent-container">
+    <form class="w-75" [formGroup]="loginForm" (ngSubmit)="login()">
+      <h3>Angular 14:</h3>
+      <h4>Gerenciamento de sessões</h4>
 
-<div class="row justify-content-center vh-100">
-  <div class="col-8 bg-success h-100">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <div>
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" formControlName="username" />
+      <hr class="mb-5">
+
+      <div class="d-flex flex-column mt-3">
+        <label class="fs-5 form-label" for="username">Usuário:</label>
+        <input class="form-control rounded-0 input-border-bottom" placeholder="email@exemplo.com" type="text" id="username" formControlName="username" />
       </div>
-      <div>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" formControlName="password" />
+      <div class="d-flex flex-column mt-3">
+        <label class="fs-5 form-label" for="password">Senha:</label>
+        <input class="form-control rounded-0 input-border-bottom"  placeholder="********" type="password" id="password" formControlName="password" />
       </div>
-      <button type="submit" [disabled]="!loginForm.valid">Login</button>
-      <button [routerLink]="'/register'">Não tenho uma conta</button>
+
+      <button class="btn btn-primary rounded-0 w-100 mt-4" type="submit" [disabled]="!loginForm.valid">Login</button>
+      <button class="btn btn-primary rounded-0 w-100 my-2" [routerLink]="'/register'">Não tenho uma conta</button>
     </form>
   </div>
 </div>

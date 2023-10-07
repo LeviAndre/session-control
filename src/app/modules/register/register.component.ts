@@ -22,6 +22,7 @@ export class RegisterComponent {
     this.formGroup = this._fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
+      birthDate: ['', Validators.required]
     });
   }
 
@@ -30,15 +31,16 @@ export class RegisterComponent {
     this.registerInfo = {
       username: this.formGroup.get('username')?.value,
       password: this.formGroup.get('password')?.value,
+      birthDate: this.formGroup.get('birthDate')?.value,
       token: this.defaultToken,
     }
 
     this._registerService.register(this.registerInfo).subscribe(
-      output => {
-        if (output['token'] !== '') {
+      response => {
+        if (response['token'] !== '') {
           this._router.navigate(['/']);
         } else {
-          console.error('Ocorreu um erro ao cadastrar o usuário:', output.message);
+          console.error('Ocorreu um erro ao cadastrar o usuário:', response.message);
         }
       },
       error => {
