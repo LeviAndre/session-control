@@ -8,6 +8,7 @@ import { LoginDTO } from 'src/app/shared/dto/login.dto';
 })
 export class AuthService {
   private baseUrl = 'http://localhost:3000';
+  private lastActivityTime = 0;
 
   constructor(private _http: HttpClient) { }
 
@@ -35,6 +36,14 @@ export class AuthService {
     var userId: any = localStorage.getItem('userId');
 
     return this._http.get<any>(`${this.baseUrl}/users?id=` + userId)
+  }
+
+  updateLastActivityTime() {
+    this.lastActivityTime = Date.now();
+  }
+
+  getLastActivityTime() {
+    return this.lastActivityTime;
   }
 
   isAuthenticated(): boolean {
